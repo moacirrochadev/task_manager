@@ -1,0 +1,15 @@
+# Desenvolveremos um pequeno aplicativo da Web para gerenciar a lista de tarefas. Os usuários poderão adicionar tarefas, marcá-las como concluídas e ver a lista atual.
+# Usaremos o Flask, uma microestrutura da Web em Python muito popular e fácil de aprender.
+# Este projeto abrangerá conceitos de desenvolvimento Web, como rotas, modelots HTML, formulários e implementação local.
+
+** ETAPAS DE DESENVOLVIMENTO
+1. Configuração inicial do projeto
+- Crie uma pasta gestão_tarefas e abra-a no Cursor. Dentro dela, crie um ambiente virtual e instale o Flask:
+    apt install python3-flask
+- Deixe o Cursor te ajudar criando um arquivo app.py principal. Podemos pedir: "Criar um esqueleto simples de aplicativo Flask"
+
+2. Implementação e testes iniciais
+- Inicie o aplicativo no Cursor usando o terminal:
+    python3 app.py
+
+3. Implementação de funcionalidades
