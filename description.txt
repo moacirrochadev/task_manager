@@ -13,3 +13,27 @@
     python3 app.py
 
 3. Implementação de funcionalidades
+    Agora vamos planejar as rotas:
+
+- Página principal (/): exibe a lista de tarefas e um formulário para adicionar uma nova tarefa.
+- Ação /adicionar: processa o formulário de nova tarefa (pelo método POST) e, em seguida, redireciona para /.
+- Ação /completar/<id>: marca uma tarefa como concluída (talvez indicando por URL ou formulário qual tarefa). Para lidar com dados que não sejam de banco de dados nesse projeto simples, podemos manter uma lista de tarefas na memória. Cada tarefa pode ser um dicionário com {'id': ..., 'texto': ..., 'feito': ...}.
+
+4. Criar a estrutura de dados
+    Começaremos com algo global em app.py:
+- Você pode escrever isso manualmente ou descrevê-lo para a IA: "Preciso de uma lista global de tarefas com campo de id incremental e funções adicionar_tarefa(texto) e completar_tarefa(id)".
+
+5. Criação de visualizações (rotas)
+- Defina o caminho principal para a exibição de tarefas
+
+6 - Uso de modelos HTML com o Jinja2
+- Peça ao Cursor: "Gerar um modelo HTML para listar tarefas e um formulário para adicionar novas tarefas"
+
+7 - Teste completo do aplicativo
+- Reinicie o app.py (o Flask com depuração é recarregado somente ao salvar normalmente, mas, às vezes, é melhor parar e executar novamente). Acesse http://127.0.0.1:5000:
+
+    - Você deverá ver o "Gestor de tarefas" e uma lista (vazia no início) e o formulário.
+    - Adicione uma tarefa "Comprar leite" e pressione add (adicionar). Ele deve retornar para / e exibir "Comprar leite [Completar]".
+    - Pressione [Completar], você deve riscar a opção "Comprar leite".
+    - Adicione várias tarefas, verifique se as tarefas não concluídas não estão riscadas na parte superior, etc.
+    - Se algo der errado (erro 500 no Flask), verifique o console onde o aplicativo está sendo executado para ver o rastreamento e corrigi-lo. A IA pode ajudar interpretando o rastreamento.

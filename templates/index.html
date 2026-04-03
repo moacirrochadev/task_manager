@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Tarefas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+  <h1>Gestor de Tarefas</h1>
+
+  <section class="card" aria-labelledby="titulo-formulario">
+    <h2 id="titulo-formulario">Adicionar nova tarefa</h2>
+    <form class="task-form" action="{{ url_for('adicionar') }}" method="post">
+      <label class="sr-only" for="texto">Descrição da tarefa</label>
+      <input type="text" id="texto" name="texto" placeholder="Ex.: Estudar por 30 min" required>
+      <button type="submit" class="btn-add">Adicionar</button>
+    </form>
+  </section>
+
+  <section class="card" aria-labelledby="titulo-lista">
+    <h2 id="titulo-lista">Lista de tarefas</h2>
+
+    {% if tasks %}
+    <ul class="task-list">
+      {% for tarefa in tasks %}
+      <li class="task-item {% if tarefa['feito'] %}done{% endif %}">
+        {% if tarefa['feito'] %}
+          <span class="task-text"><s>{{ tarefa['texto'] }}</s></span>
+          <span class="task-status">Concluída</span>
+        {% else %}
+          <span class="task-text">{{ tarefa['texto'] }}</span>
+          <a class="task-action" href="/completar/{{ tarefa['id'] }}">Concluir</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty-state">Nenhuma tarefa cadastrada ainda.</p>
+    {% endif %}
+  </section>
+  </main>
+</body>
+</html>
