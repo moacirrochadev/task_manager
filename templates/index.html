@@ -2,28 +2,39 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestor de Tarefas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Planner de Tarefas | Organize e conclua suas tarefas online</title>
+  <meta name="description" content="Planner de Tarefas: crie sua lista, adicione tarefas, marque como concluídas e limpe a lista. Simples, rápido e focado em produtividade no dia a dia.">
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <!-- Lucide: em qualquer lugar do HTML use <i data-lucide="nome-do-icone"></i> (veja https://lucide.dev/icons/) -->
 </head>
 <body>
   <main class="container">
-  <h1>Gestor de Tarefas</h1>
+  <section class="titulo">
+    <h1><i data-lucide="layout-list" class="titulo-icone" aria-hidden="true"></i> Planner de Tarefas</h1>
+    <p>Lista de tarefas digital: adicione itens, conclua com um clique e limpe a lista quando quiser.</p>
+  </section>
 
   <section class="card" aria-labelledby="titulo-formulario">
-    <h2 id="titulo-formulario">Adicionar nova tarefa</h2>
+    <h2 id="titulo-formulario" class="titulo-secao"><i data-lucide="square-plus" aria-hidden="true"></i> Adicionar nova tarefa</h2>
     <form class="task-form" action="{{ url_for('adicionar') }}" method="post">
       <label class="sr-only" for="texto">Descrição da tarefa</label>
       <input type="text" id="texto" name="texto" placeholder="Ex.: Estudar por 30 min" required>
-      <button type="submit" class="btn-add">Adicionar</button>
+      <button type="submit" class="btn-add"><i data-lucide="plus" aria-hidden="true"></i> Adicionar</button>
     </form>
   </section>
 
   <section class="card" aria-labelledby="titulo-lista">
-    <h2 id="titulo-lista">Lista de tarefas</h2>
+    <div class="section-header">
+      <h2 id="titulo-lista" class="titulo-secao"><i data-lucide="list-checks" aria-hidden="true"></i> Lista de tarefas</h2>
+      <form action="{{ url_for('limpar') }}" method="post">
+        <button type="submit" class="btn-clear"><i data-lucide="trash-2" aria-hidden="true"></i> Limpar lista</button>
+      </form>
+    </div>
 
     {% if tasks %}
     <ul class="task-list">
@@ -31,10 +42,10 @@
       <li class="task-item {% if tarefa['feito'] %}done{% endif %}">
         {% if tarefa['feito'] %}
           <span class="task-text"><s>{{ tarefa['texto'] }}</s></span>
-          <span class="task-status">Concluída</span>
+          <span class="task-status"><i data-lucide="circle-check" class="icone-inline" aria-hidden="true"></i> Concluída</span>
         {% else %}
           <span class="task-text">{{ tarefa['texto'] }}</span>
-          <a class="task-action" href="/completar/{{ tarefa['id'] }}">Concluir</a>
+          <a class="task-action" href="/completar/{{ tarefa['id'] }}"><i data-lucide="check" class="icone-inline" aria-hidden="true"></i> Concluir</a>
         {% endif %}
       </li>
       {% endfor %}
@@ -44,5 +55,9 @@
     {% endif %}
   </section>
   </main>
+  <script src="{{ url_for('static', filename='js/lucide.min.js') }}"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

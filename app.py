@@ -23,6 +23,12 @@ def completar(task_id: int) -> None:
             break
 
 
+def limpar_tarefas() -> None:
+    global _next_id
+    tasks.clear()
+    _next_id = 1
+
+
 @app.route("/")
 def index():
     """Página principal: lista de tarefas + formulário para nova tarefa."""
@@ -39,6 +45,12 @@ def adicionar():
 @app.route("/completar/<int:task_id>", endpoint="completar")
 def redirecionar_apos_completar(task_id: int):
     completar(task_id)
+    return redirect(url_for("index"))
+
+
+@app.route("/limpar", methods=["POST"])
+def limpar():
+    limpar_tarefas()
     return redirect(url_for("index"))
 
 

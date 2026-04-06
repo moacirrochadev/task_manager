@@ -37,3 +37,6 @@
     - Pressione [Completar], você deve riscar a opção "Comprar leite".
     - Adicione várias tarefas, verifique se as tarefas não concluídas não estão riscadas na parte superior, etc.
     - Se algo der errado (erro 500 no Flask), verifique o console onde o aplicativo está sendo executado para ver o rastreamento e corrigi-lo. A IA pode ajudar interpretando o rastreamento.
+
+8 - Melhorias opcionais
+- Você poderia adicionar a capacidade de excluir tarefas, editar texto ou persistência (por exemplo, salvar tarefas em um arquivo JSON para que não sejam perdidas na reinicialização). Com o conhecimento atual, você poderia salvar após cada alteração.

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Favicon gestor de tarefas">
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="#27272A"/>
+  <rect x="16" y="18" width="30" height="4" rx="2" fill="#D4D4D8"/>
+  <rect x="16" y="30" width="30" height="4" rx="2" fill="#D4D4D8"/>
+  <rect x="16" y="42" width="30" height="4" rx="2" fill="#D4D4D8"/>
+  <path d="M45 16l4 4 8-8" fill="none" stroke="#BEF264" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
