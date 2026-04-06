@@ -27,8 +27,8 @@ Aplicação web simples para gerenciar uma lista de tarefas: adicionar itens, ma
 ### 1. Clonar o repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/SEU_REPOSITORIO.git
-cd SEU_REPOSITORIO
+git clone https://github.com/moacirrochadev/task_manager.git
+cd task_manager
 ```
 
 Substitua a URL pelo endereço real do seu repositório no GitHub.
